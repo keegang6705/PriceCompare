@@ -13,7 +13,7 @@
         android:theme="@style/Theme.PriceCompare"
         tools:targetApi="31">
         <activity
-            android:name=".SplashScreenActivity"
+            android:name=".activity.WelcomeActivity"
             android:exported="true"
             android:theme="@style/Theme.PriceCompare">
             <intent-filter>
@@ -21,7 +21,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity"
+        <activity android:name=".activity.MainActivity"
+            android:exported="true"
+            android:theme="@style/Theme.PriceCompare">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".activity.SignInActivity"
             android:exported="true"
             android:theme="@style/Theme.PriceCompare">
             <intent-filter>
