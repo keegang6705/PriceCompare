@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">แอพเปรียบเทียบราคา</string>
+    <string name="app_name">เทียบราคา</string>
     <string name="welcome">ยินดีต้อนรับ</string>
+    <string name="sign_in_with_google">ลงชื่อเข้าใช้ด้วย google</string>
 </resources>

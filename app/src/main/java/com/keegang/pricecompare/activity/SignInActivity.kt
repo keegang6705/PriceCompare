@@ -22,6 +22,7 @@ import androidx.compose.ui.platform.LocalContext
 import com.firebase.ui.auth.AuthUI
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
+import com.keegang.pricecompare.R
 import com.keegang.pricecompare.ui.theme.PriceCompareTheme
 
 class SignInActivity : ComponentActivity() {
@@ -38,11 +39,12 @@ class SignInActivity : ComponentActivity() {
                     handleSignInResult(this, user)
                 }
             }
+        val sign_in_with_google = getString(R.string.sign_in_with_google)
 
         setContent {
             PriceCompareTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    SignInScreen(LocalContext.current, innerPadding) {
+                    SignInScreen(LocalContext.current, innerPadding,sign_in_with_google) {
                         startSignInFlow()
                     }
                 }
@@ -68,7 +70,7 @@ class SignInActivity : ComponentActivity() {
 }
 
 @Composable
-fun SignInScreen(context: Context, innerPadding: PaddingValues, onSignInClick: () -> Unit) {
+fun SignInScreen(context: Context, innerPadding: PaddingValues,sign_in_with_google: String, onSignInClick: () -> Unit) {
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -76,7 +78,7 @@ fun SignInScreen(context: Context, innerPadding: PaddingValues, onSignInClick: (
         contentAlignment = Alignment.Center
     ) {
         Button(onClick = onSignInClick) {
-            Text("Sign in with Google")
+            Text(sign_in_with_google)
         }
     }
 }
