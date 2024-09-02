@@ -1,10 +1,13 @@
 package com.keegang.pricecompare.activity
 
+import com.keegang.pricecompare.R
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -19,15 +22,16 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
 
-        // ดึงชื่อผู้ใช้จาก FirebaseAuth
         val userName = FirebaseAuth.getInstance().currentUser?.displayName
+        val welcome = getString(R.string.welcome)
 
         setContent {
             PriceCompareTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     Main(
                         padding = Modifier.padding(innerPadding),
-                        userName = userName ?: "Unknown User"
+                        userName = userName ?: "Unknown User",
+                        welcome = welcome
                     )
                 }
             }
@@ -36,12 +40,12 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun Main(padding: Modifier, userName: String) {
+fun Main(padding: Modifier, userName: String,welcome: String) {
     Box(
         modifier = padding.fillMaxSize(),
         contentAlignment = Alignment.Center
     ) {
-        Text(text = "Welcome, $userName")
+        Text(text = "$welcome, $userName!")
     }
 }
 
@@ -55,7 +59,8 @@ fun PreviewMainScreen() {
         Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
             Main(
                 padding = Modifier.padding(innerPadding),
-                userName = "Preview User"
+                userName = "Preview User",
+                welcome = "Welcome"
             )
         }
     }

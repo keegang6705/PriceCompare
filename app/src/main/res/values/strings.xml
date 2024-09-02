@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">PriceCompare</string>
+    <string name="welcome">Welcome</string>
 </resources>
