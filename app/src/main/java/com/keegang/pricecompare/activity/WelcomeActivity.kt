@@ -6,17 +6,17 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
-import com.keegang.pricecompare.ui.theme.PriceCompareTheme
 import com.google.android.gms.auth.api.signin.GoogleSignIn
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+import com.keegang.pricecompare.ui.theme.PriceCompareTheme
 
 
 class WelcomeActivity : ComponentActivity() {
@@ -36,8 +36,8 @@ class WelcomeActivity : ComponentActivity() {
 
 @Composable
 fun WelcomeScreen(context: Context, innerPadding: PaddingValues) {
-    val googleSignInClient =
-        remember { GoogleSignIn.getClient(context, GoogleSignInOptions.DEFAULT_SIGN_IN) }
+    Box(modifier = Modifier.padding(innerPadding))
+    //val googleSignInClient = remember { GoogleSignIn.getClient(context, GoogleSignInOptions.DEFAULT_SIGN_IN) }
 
     val account = GoogleSignIn.getLastSignedInAccount(context)
     val isSignedIn = account != null
